@@ -21,18 +21,20 @@ namespace ProductStock.Application.UseCase.Register.Movement
             if (product == null) {
                 throw new NotFoundException([$"Produto {req.ProductCode} nao encontrado"]);
             }
-            
+
+            Validate(req, product.Quantity);
+
             var description = "";
 
             if((int)req.Type == 1)
             {
                 product.Quantity += req.Quantity;
-                description = $"Adicionando {product.ProductID} ao estoque";
+                description = $"Adicionando {req.Quantity} de {product.ProductID} do ao estoque";
             }
             else
             {
                 product.Quantity -= req.Quantity;
-                description = $"Removendo {product.ProductID} ao estoque";
+                description = $"Removendo {req.Quantity} de {product.ProductID} do estoque";
             }
 
             _stockRepository.Update(product, product.Quantity);
@@ -42,6 +44,19 @@ namespace ProductStock.Application.UseCase.Register.Movement
                 ProductCode = req.ProductCode,
                 Quantity = product.Quantity
             };
+        }
+
+        private void Validate(RequestMovement req, long currentQuantity)
+        {
+            var result = new RegisterMovenmentValidation().Validate(req);
+            var errors = result.Errors.Select(e => e.ErrorMessage).ToList();
+
+            if((int)req.Type == 2 && currentQuantity - req.Quantity < 0)
+            {
+                errors.Add("Quantidade para remocao seria maior do que tem no estoque");
+            }
+            if (errors.Count > 0)
+                throw new ProductException(errors);
         }
     }
 }

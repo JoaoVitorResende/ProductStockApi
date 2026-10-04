@@ -10,7 +10,7 @@ namespace ProductStock.Controllers
     public class MovementController : ControllerBase
     {
         [HttpPost]
-        [ProducesResponseType(typeof(ResponseProduct), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseMovement), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseError), StatusCodes.Status400BadRequest)]
         public IActionResult Register(
             [FromServices] IRegisterMovement useCase,
