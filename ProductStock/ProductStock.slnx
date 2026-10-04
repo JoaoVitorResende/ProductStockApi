@@ -1,0 +1,21 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/ProductStock.Api/">
+    <Project Path="src/ProductStock.Api/ProductStock/ProductStock.csproj" />
+  </Folder>
+  <Folder Name="/src/ProductStock.Application/">
+    <Project Path="src/ProductStock.Application/ProductStock.Application/ProductStock.Application.csproj" />
+  </Folder>
+  <Folder Name="/src/ProductStock.Communication/">
+    <Project Path="src/ProductStock.Communication/ProductStock.Communication/ProductStock.Communication.csproj" />
+  </Folder>
+  <Folder Name="/src/ProductStock.Domain/">
+    <Project Path="src/ProductStock.Domain/ProductStock.Domain/ProductStock.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/ProductStock.Exception/">
+    <Project Path="src/ProductStock.Exception/ProductStock.Exception/ProductStock.Exception.csproj" />
+  </Folder>
+  <Folder Name="/src/ProductStock.Infrastructure/">
+    <Project Path="src/ProductStock.Infrastructure/ProductStock.Infrastructure/ProductStock.Infrastructure.csproj" />
+  </Folder>
+</Solution>
