@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProductStock.Application.UseCase.GetAll;
-using ProductStock.Application.UseCase.Register;
+using ProductStock.Application.UseCase.Register.Products;
 using ProductStock.Communication.Request;
 using ProductStock.Communication.Response;
 

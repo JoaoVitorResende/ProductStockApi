@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ProductStock.Application.UseCase.GetAll;
-using ProductStock.Application.UseCase.Register;
+using ProductStock.Application.UseCase.Register.Movement;
+using ProductStock.Application.UseCase.Register.Products;
 
 namespace ProductStock.Application.UseCase
 {
@@ -15,6 +16,7 @@ namespace ProductStock.Application.UseCase
         {
             services.AddScoped<IRegisterProduct, RegisterProduct>();
             services.AddScoped<IGetAllProducts, GetAllProducts>();
+            services.AddScoped<IRegisterMovement, RegisterMovement>();
         }
     }
 }

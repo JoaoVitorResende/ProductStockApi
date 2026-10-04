@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using ProductStock.Communication.Request;
 
-namespace ProductStock.Application.UseCase.Register
+namespace ProductStock.Application.UseCase.Register.Products
 {
     public class RegisterProductValidation : AbstractValidator<RequestProduct>
     {

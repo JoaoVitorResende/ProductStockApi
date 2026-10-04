@@ -3,7 +3,7 @@ using ProductStock.Communication.Response;
 using ProductStock.Domain.Repositories;
 using ProductStock.Exception.ExceptionProduct;
 
-namespace ProductStock.Application.UseCase.Register
+namespace ProductStock.Application.UseCase.Register.Products
 {
     public class RegisterProduct : IRegisterProduct
     {

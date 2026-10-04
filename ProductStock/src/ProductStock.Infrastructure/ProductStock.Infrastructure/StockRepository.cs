@@ -6,6 +6,7 @@ namespace ProductStock.Infrastructure
     public class StockRepository : IStockRepository
     {
         private readonly Dictionary<long, Product> _products = new();
+        public void Update(Product product, long quantity) => _products[product.ProductID].Quantity = quantity;
         public void Add(Product product) => _products.Add(product.ProductID, product);
         public bool Exists(long code) => _products.ContainsKey(code);
         public List<Product> GetAll() => _products.Values.ToList();

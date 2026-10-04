@@ -8,6 +8,7 @@ namespace ProductStock.Domain.Repositories
         Product? GetByCode(long code);
         List<Product> GetAll();
         void Add(Product product);
-        bool Delete(long code);   
+        bool Delete(long code);
+        void Update(Product product, long quantity);
     }
 }
