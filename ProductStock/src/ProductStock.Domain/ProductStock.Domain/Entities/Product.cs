@@ -1,4 +1,4 @@
-﻿namespace ProductStock.Domain.Entitties
+﻿namespace ProductStock.Domain.Entities
 {
     public class Product
     {

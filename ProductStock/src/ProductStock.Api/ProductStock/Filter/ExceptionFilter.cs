@@ -21,9 +21,9 @@ namespace ProductStock.Filter
 
         private void HandleProjectException(ExceptionContext context)
         {
-            var commisionException = (ProductStockException)context.Exception;
-            var errorResponse = new ResponseError(commisionException.GetErros());
-            context.HttpContext.Response.StatusCode = commisionException.StatusCode;
+            var productException = (ProductStockException)context.Exception;
+            var errorResponse = new ResponseError(productException.GetErros());
+            context.HttpContext.Response.StatusCode = productException.StatusCode;
             context.Result = new ObjectResult(errorResponse);
         }
 

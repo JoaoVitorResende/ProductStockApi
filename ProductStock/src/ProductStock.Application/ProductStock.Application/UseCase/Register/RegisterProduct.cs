@@ -1,7 +1,7 @@
 ﻿using ProductStock.Communication.Request;
 using ProductStock.Communication.Response;
+using ProductStock.Domain.Repositories;
 using ProductStock.Exception.ExceptionProduct;
-using ProductStock.Infrastructure;
 
 namespace ProductStock.Application.UseCase.Register
 {
@@ -25,11 +25,21 @@ namespace ProductStock.Application.UseCase.Register
         private void Validate(RequestProduct req)
         {
             var result = new RegisterProductValidation().Validate(req);
-            if (!result.IsValid)
-            {
-                var errors = result.Errors.Select(e => e.ErrorMessage).ToList();
+            var errors = result.Errors.Select(e => e.ErrorMessage).ToList();
+
+            var repeated = req.Products
+                .GroupBy(p => p.ProductID)
+                .Where(g => g.Count() > 1)
+                .Select(g => $"O id {g.Key} aparece mais de uma vez na requisição.");
+            errors.AddRange(repeated);
+
+            var existing = req.Products
+                .Where(p => _repository.Exists(p.ProductID))
+                .Select(p => $"O id {p.ProductID} já está cadastrado.");
+            errors.AddRange(existing);
+
+            if (errors.Count > 0)
                 throw new ProductException(errors);
-            }
         }
     }
 }

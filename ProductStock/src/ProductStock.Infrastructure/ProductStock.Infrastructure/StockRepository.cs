@@ -1,4 +1,5 @@
-﻿using ProductStock.Domain.Entitties;
+﻿using ProductStock.Domain.Entities;
+using ProductStock.Domain.Repositories;
 
 namespace ProductStock.Infrastructure
 {

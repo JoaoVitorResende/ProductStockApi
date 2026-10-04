@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProductStock.Application.UseCase.GetAll;
 using ProductStock.Application.UseCase.Register;
 using ProductStock.Communication.Request;
 using ProductStock.Communication.Response;
 
 namespace ProductStock.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/products")]
     [ApiController]
     public class ProductStockController : ControllerBase
     {
@@ -23,12 +23,10 @@ namespace ProductStock.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(ResponseProduct), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ResponseError), StatusCodes.Status400BadRequest)]
         public IActionResult GetAll(
-            [FromServices] IRegisterProduct useCase,
-            [FromBody] RequestProduct request)
+            [FromServices] IGetAllProducts useCase)
         {
-            var response = useCase.Execute(request);
+            var response = useCase.Execute();
             return Ok(response);
         }
     }

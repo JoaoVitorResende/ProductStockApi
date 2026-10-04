@@ -1,6 +1,6 @@
-﻿using ProductStock.Domain.Entitties;
+﻿using ProductStock.Domain.Entities;
 
-namespace ProductStock.Infrastructure
+namespace ProductStock.Domain.Repositories
 {
     public interface IStockRepository
     {

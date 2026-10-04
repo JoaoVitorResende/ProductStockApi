@@ -2,7 +2,7 @@
 {
     public enum MovementType
     {
-        Entry = 0,
-        Exit = 1,
+        Entry = 1,
+        Exit = 2,
     }
 }

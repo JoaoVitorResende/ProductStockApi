@@ -1,4 +1,4 @@
-﻿using ProductStock.Domain.Entitties;
+﻿using ProductStock.Domain.Entities;
 
 namespace ProductStock.Communication.Response
 {

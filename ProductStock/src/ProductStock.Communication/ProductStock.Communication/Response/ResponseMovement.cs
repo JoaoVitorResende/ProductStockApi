@@ -2,7 +2,7 @@
 
 namespace ProductStock.Communication.Response
 {
-    public class ResponseMovent
+    public class ResponseMovement
     {
         public long Id { get; set; }
         public long ProductCode { get; set; }

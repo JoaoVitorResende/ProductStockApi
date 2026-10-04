@@ -1,4 +1,5 @@
 using ProductStock.Application.UseCase;
+using ProductStock.Filter;
 using ProductStock.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructure();
 builder.Services.AddApplication();
+builder.Services.AddControllers(options => options.Filters.Add<ExceptionFilter>());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

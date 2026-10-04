@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ProductStock.Domain.Repositories;
 
 namespace ProductStock.Infrastructure
 {
